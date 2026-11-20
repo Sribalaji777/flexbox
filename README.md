@@ -1,1 +1,888 @@
-# flexbox
+# flexbox# flexbox
+# Ex02 Commercial Website
+## Date: 20.11.2026
+
+## AIM
+To create a commercial website using CSS Flexbox.
+
+## ALGORITHM
+### STEP 1
+Create an HTML file (index.html)
+
+### STEP 2
+Create a CSS file (style.css)
+
+### STEP 3
+Include a navigation bar with links to different sections.
+
+### STEP 4
+Add structured sections for Homepage, Products / Services, About Us, Contact Details and User Account.
+
+### STEP 5
+Include social media links at the footer with copyright information.
+
+### STEP 6
+Define global styles for fonts, colors, and layout.
+
+### STEP 7
+Style the header, navigation bar, and sections.
+
+### STEP 8
+Use Flexbox for layout design.
+
+### STEP 9
+Add hover effects and transitions for interactivity.
+
+### STEP 10
+Add Images and Media.
+
+### STEP 11
+Use optimized images for a professional look.
+
+### STEP 12
+Open the HTML file in a browser to check layout and functionality.
+
+### STEP 13
+Fix styling issues and refine content placement.
+
+### STEP 14
+Deploy the website.
+
+### STEP 15
+Upload to GitHub Pages for free hosting.
+
+## PROGRAM
+```
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopZone | Premium Shopping</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f7f8fc;
+            color: #252238;
+        }
+
+        /* HEADER */
+        header {
+            background: white;
+            padding: 18px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            box-shadow: 0 2px 12px #ddd;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: bold;
+            color: #6335a5;
+        }
+
+        .logo span {
+            color: #ff8c42;
+        }
+
+        .search-box {
+            display: flex;
+            background: #f2eff8;
+            border-radius: 25px;
+            padding: 10px 16px;
+            width: 35%;
+            min-width: 200px;
+        }
+
+        .search-box input {
+            border: none;
+            outline: none;
+            background: transparent;
+            width: 100%;
+            font-size: 14px;
+        }
+
+        .header-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .cart-btn {
+            background: #6335a5;
+            color: white;
+            padding: 11px 17px;
+            border-radius: 25px;
+            cursor: pointer;
+            border: none;
+        }
+
+        /* HERO */
+        .hero {
+            margin: 30px 6%;
+            padding: 65px 45px;
+            border-radius: 18px;
+            background: linear-gradient(120deg, #422078, #9867d5);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 17px;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .hero button {
+            padding: 13px 25px;
+            border: none;
+            background: #ffb44d;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .hero button:hover {
+            background: white;
+        }
+
+        .hero-icon {
+            font-size: 100px;
+        }
+
+        /* COMMON SECTION */
+        .section {
+            padding: 30px 6%;
+        }
+
+        .section-title {
+            font-size: 27px;
+            margin-bottom: 25px;
+        }
+
+        /* CATEGORIES */
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .category {
+            background: white;
+            width: 145px;
+            padding: 22px;
+            text-align: center;
+            border-radius: 14px;
+            cursor: pointer;
+            box-shadow: 0 3px 12px #e4e0eb;
+            transition: 0.3s;
+        }
+
+        .category:hover {
+            transform: translateY(-5px);
+            background: #eee6fa;
+        }
+
+        .category div {
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        /* FILTERS */
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            border: 1px solid #6335a5;
+            background: white;
+            color: #6335a5;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: #6335a5;
+            color: white;
+        }
+
+        /* PRODUCT GRID */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .product {
+            background: white;
+            padding: 18px;
+            border-radius: 15px;
+            box-shadow: 0 3px 12px #e5e2ec;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .product:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 20px #d8d2e3;
+        }
+
+        .product img {
+            width: 100%;
+            height: 190px;
+            object-fit: contain;
+        }
+
+        .discount {
+            background: #e5f8eb;
+            color: #219653;
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .product h3 {
+            margin: 10px 0;
+        }
+
+        .rating {
+            color: #f5a623;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 19px;
+            font-weight: bold;
+            color: #6335a5;
+        }
+
+        .old-price {
+            color: #999;
+            text-decoration: line-through;
+            font-size: 13px;
+            margin-left: 8px;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .add-btn {
+            flex: 1;
+            background: #6335a5;
+            color: white;
+            padding: 11px;
+            border: none;
+            border-radius: 7px;
+            cursor: pointer;
+        }
+
+        .wish-btn {
+            background: #f2eff8;
+            border: none;
+            padding: 10px;
+            border-radius: 7px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        /* OFFER */
+        .offer {
+            margin: 25px 6%;
+            padding: 35px;
+            background: #fff0df;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .offer h2 {
+            color: #a04c13;
+            margin-bottom: 12px;
+        }
+
+        /* REVIEWS */
+        .reviews {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .review {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px #e5e2ec;
+            line-height: 1.7;
+        }
+
+        .review h3 {
+            color: #6335a5;
+            margin-top: 12px;
+        }
+
+        /* NEWSLETTER */
+        .newsletter {
+            background: #6335a5;
+            color: white;
+            text-align: center;
+            padding: 45px 20px;
+            margin-top: 30px;
+        }
+
+        .newsletter input {
+            padding: 13px;
+            width: 260px;
+            border: none;
+            border-radius: 7px;
+            margin-top: 20px;
+        }
+
+        .newsletter button {
+            padding: 13px 20px;
+            border: none;
+            background: #ffb44d;
+            border-radius: 7px;
+            cursor: pointer;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #211632;
+            color: white;
+            padding: 40px 6%;
+            text-align: center;
+            line-height: 2;
+        }
+
+        /* CART PANEL */
+        .cart-panel {
+            display: none;
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 350px;
+            max-width: 100%;
+            height: 100vh;
+            background: white;
+            z-index: 30;
+            padding: 25px;
+            overflow-y: auto;
+            box-shadow: -5px 0 20px #999;
+        }
+
+        .cart-panel h2 {
+            margin-bottom: 20px;
+        }
+
+        .close-btn {
+            float: right;
+            border: none;
+            background: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .cart-item {
+            padding: 15px 0;
+            border-bottom: 1px solid #ddd;
+            line-height: 1.8;
+        }
+
+        .quantity button {
+            padding: 4px 10px;
+            cursor: pointer;
+        }
+
+        .remove-btn {
+            color: red;
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            margin-top: 20px;
+            padding: 13px;
+            background: #6335a5;
+            color: white;
+            border: none;
+            border-radius: 7px;
+            cursor: pointer;
+        }
+
+        @media(max-width: 800px) {
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .reviews {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+        }
+
+        @media(max-width: 550px) {
+            header {
+                justify-content: center;
+            }
+
+            .search-box {
+                width: 100%;
+            }
+
+            .header-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 20px;
+            }
+
+            .hero-icon {
+                font-size: 65px;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .category {
+                width: 125px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">Shop<span>Zone.</span></div>
+
+        <div class="search-box">
+            🔍
+            <input type="text" id="search"
+                placeholder="Search products..."
+                oninput="searchProducts()">
+        </div>
+
+        <div class="header-links">
+            <a href="#home">Home</a>
+            <a href="#products">Shop</a>
+            <a href="#reviews">Reviews</a>
+            <button class="cart-btn" onclick="openCart()">
+                🛒 Cart (<span id="cartCount">0</span>)
+            </button>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div>
+            <h1>Upgrade Your Lifestyle!</h1>
+            <p>
+                Discover premium products at amazing prices.
+                Enjoy exclusive deals and a better shopping experience.
+            </p>
+            <button onclick="document.getElementById('products')
+                .scrollIntoView({behavior:'smooth'})">
+                Explore Products →
+            </button>
+        </div>
+
+        <div class="hero-icon">🛍️</div>
+    </section>
+
+    <!-- CATEGORIES -->
+    <section class="section">
+        <h2 class="section-title">Shop by Category</h2>
+
+        <div class="categories">
+            <div class="category" onclick="filterCategory('Electronics')">
+                <div>🎧</div>
+                <h3>Electronics</h3>
+            </div>
+
+            <div class="category" onclick="filterCategory('Fashion')">
+                <div>👕</div>
+                <h3>Fashion</h3>
+            </div>
+
+            <div class="category" onclick="filterCategory('Footwear')">
+                <div>👟</div>
+                <h3>Footwear</h3>
+            </div>
+
+            <div class="category" onclick="filterCategory('Accessories')">
+                <div>⌚</div>
+                <h3>Accessories</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section class="section" id="products">
+        <h2 class="section-title">Featured Products</h2>
+
+        <div class="filters">
+            <button class="filter-btn active"
+                onclick="filterCategory('All', this)">All</button>
+
+            <button class="filter-btn"
+                onclick="filterCategory('Electronics', this)">Electronics</button>
+
+            <button class="filter-btn"
+                onclick="filterCategory('Fashion', this)">Fashion</button>
+
+            <button class="filter-btn"
+                onclick="filterCategory('Footwear', this)">Footwear</button>
+
+            <button class="filter-btn"
+                onclick="filterCategory('Accessories', this)">Accessories</button>
+        </div>
+
+        <div class="product-grid" id="productGrid">
+
+            <div class="product" data-category="Electronics">
+                <span class="discount">20% OFF</span>
+                <img src="headphone.jpg" alt="Headphones">
+                <h3>Premium Headphones</h3>
+                <div class="rating">★★★★★ (120)</div>
+                <p class="price">₹1,499
+                    <span class="old-price">₹1,899</span>
+                </p>
+                <div class="product-actions">
+                    <button class="add-btn"
+                        onclick="addToCart('Premium Headphones',1499)">
+                        Add to Cart
+                    </button>
+                    <button class="wish-btn"
+                        onclick="wishlist(this)">♡</button>
+                </div>
+            </div>
+
+            <div class="product" data-category="Accessories">
+                <span class="discount">15% OFF</span>
+                <img src="watch.jpg" alt="Smart Watch">
+                <h3>Smart Watch</h3>
+                <div class="rating">★★★★★ (98)</div>
+                <p class="price">₹2,499
+                    <span class="old-price">₹2,999</span>
+                </p>
+                <div class="product-actions">
+                    <button class="add-btn"
+                        onclick="addToCart('Smart Watch',2499)">
+                        Add to Cart
+                    </button>
+                    <button class="wish-btn"
+                        onclick="wishlist(this)">♡</button>
+                </div>
+            </div>
+
+            <div class="product" data-category="Footwear">
+                <span class="discount">25% OFF</span>
+                <img src="shoes.jpg" alt="Sports Shoes">
+                <h3>Sports Shoes</h3>
+                <div class="rating">★★★★☆ (85)</div>
+                <p class="price">₹1,999
+                    <span class="old-price">₹2,599</span>
+                </p>
+                <div class="product-actions">
+                    <button class="add-btn"
+                        onclick="addToCart('Sports Shoes',1999)">
+                        Add to Cart
+                    </button>
+                    <button class="wish-btn"
+                        onclick="wishlist(this)">♡</button>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </section>
+
+    <!-- OFFER -->
+    <section class="offer">
+        <h2>🎉 Special Shopping Festival!</h2>
+        <p>Enjoy exciting discounts on selected products.</p>
+        <h3 style="margin-top:15px;">Up to 50% OFF</h3>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="section" id="reviews">
+        <h2 class="section-title">What Our Customers Say</h2>
+
+        <div class="reviews">
+            <div class="review">
+                <div class="rating">★★★★★</div>
+                <p>"Amazing products and smooth shopping experience!"</p>
+                <h3>Rahul K.</h3>
+            </div>
+
+            <div class="review">
+                <div class="rating">★★★★★</div>
+                <p>"Good quality products at affordable prices."</p>
+                <h3>Priya S.</h3>
+            </div>
+
+            <div class="review">
+                <div class="rating">★★★★☆</div>
+                <p>"Easy to use website and attractive offers."</p>
+                <h3>Arun M.</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter">
+        <h2>Stay Updated With ShopZone!</h2>
+        <p>Subscribe to receive the latest offers and updates.</p>
+
+        <form onsubmit="subscribe(event)">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <h2>ShopZone.</h2>
+        <p>Shop Smart. Save More. Live Better.</p>
+        <p>Email: shopzone@gmail.com</p>
+        <p>Phone: 9876543210</p>
+        <p>Address: Madhavaram, Chennai</p>
+        <p>© 2026 ShopZone. All Rights Reserved.</p>
+    </footer>
+
+    <!-- CART PANEL -->
+    <div class="cart-panel" id="cartPanel">
+        <button class="close-btn" onclick="closeCart()">×</button>
+        <h2>🛒 Your Shopping Cart</h2>
+
+        <div id="cartItems">
+            Your cart is empty.
+        </div>
+
+        <h3 id="total">Total: ₹0</h3>
+
+        <button class="checkout-btn" onclick="checkout()">
+            Proceed to Checkout
+        </button>
+    </div>
+
+    <script>
+        let cart = [];
+
+        // ADD TO CART
+        function addToCart(name, price) {
+            let item = cart.find(product => product.name === name);
+
+            if (item) {
+                item.quantity++;
+            } else {
+                cart.push({
+                    name: name,
+                    price: price,
+                    quantity: 1
+                });
+            }
+
+            updateCart();
+            alert(name + " added to cart!");
+        }
+
+        // UPDATE CART
+        function updateCart() {
+            let count = cart.reduce(
+                (sum, item) => sum + item.quantity, 0
+            );
+
+            document.getElementById("cartCount").innerText = count;
+
+            let total = 0;
+            let html = "";
+
+            if (cart.length === 0) {
+                html = "Your cart is empty.";
+            }
+
+            cart.forEach((item, index) => {
+                let subtotal = item.price * item.quantity;
+                total += subtotal;
+
+                html += `
+                    <div class="cart-item">
+                        <b>${item.name}</b><br>
+                        ₹${item.price} × ${item.quantity}
+                        <div class="quantity">
+                            <button onclick="changeQuantity(${index},-1)">−</button>
+                            ${item.quantity}
+                            <button onclick="changeQuantity(${index},1)">+</button>
+                        </div>
+                        <button class="remove-btn"
+                            onclick="removeItem(${index})">Remove</button>
+                        <p>Subtotal: ₹${subtotal.toLocaleString("en-IN")}</p>
+                    </div>
+                `;
+            });
+
+            document.getElementById("cartItems").innerHTML = html;
+            document.getElementById("total").innerText =
+                "Total: ₹" + total.toLocaleString("en-IN");
+        }
+
+        // CHANGE QUANTITY
+        function changeQuantity(index, amount) {
+            cart[index].quantity += amount;
+
+            if (cart[index].quantity <= 0) {
+                cart.splice(index, 1);
+            }
+
+            updateCart();
+        }
+
+        // REMOVE PRODUCT
+        function removeItem(index) {
+            cart.splice(index, 1);
+            updateCart();
+        }
+
+        // OPEN CART
+        function openCart() {
+            document.getElementById("cartPanel").style.display = "block";
+        }
+
+        function closeCart() {
+            document.getElementById("cartPanel").style.display = "none";
+        }
+
+        // SEARCH PRODUCTS
+        function searchProducts() {
+            let input = document.getElementById("search")
+                .value.toLowerCase();
+
+            document.querySelectorAll(".product").forEach(product => {
+                let name = product.querySelector("h3")
+                    .innerText.toLowerCase();
+
+                product.style.display =
+                    name.includes(input) ? "block" : "none";
+            });
+        }
+
+        // CATEGORY FILTER
+        function filterCategory(category, button) {
+            document.querySelectorAll(".product").forEach(product => {
+                product.style.display =
+                    category === "All" ||
+                    product.dataset.category === category
+                    ? "block" : "none";
+            });
+
+            document.querySelectorAll(".filter-btn").forEach(btn => {
+                btn.classList.remove("active");
+            });
+
+            if (button) {
+                button.classList.add("active");
+            } else if (category === "All") {
+                document.querySelector(".filter-btn").classList.add("active");
+            }
+
+            document.getElementById("products").scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+
+        // WISHLIST
+        function wishlist(button) {
+            if (button.innerText === "♡") {
+                button.innerText = "♥";
+                button.style.color = "red";
+            } else {
+                button.innerText = "♡";
+                button.style.color = "#333";
+            }
+        }
+
+        // NEWSLETTER
+        function subscribe(event) {
+            event.preventDefault();
+            alert("Thank you for subscribing to ShopZone!");
+            event.target.reset();
+        }
+
+        // CHECKOUT
+        function checkout() {
+            if (cart.length === 0) {
+                alert("Your cart is empty!");
+            } else {
+                alert("Checkout demo! Payment gateway is not connected yet.");
+            }
+        }
+
+    </script>
+
+</body>
+</html>
+
+
+```
+
+## OUTPUT
+![alt text](output1.jpeg)
+
+
+![alt text](output2.jpeg)
+
+## RESULT
+The program for creating commercial website using CSS Flexbox is executed successfully.
